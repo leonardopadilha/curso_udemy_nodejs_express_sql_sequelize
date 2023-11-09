@@ -17,4 +17,12 @@ router.post('/body', (req, res) => {
     res.json(req.body)
 })
 
+router.get('/response', (req, res) => {
+    res.status(202).json({
+        error: 'Bad Request',
+        name: "teste",
+        "lastname": "da silva"
+    })
+})
+
 module.exports = router;
