@@ -16,6 +16,15 @@ const port = 3000;
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use((req, res, next) => {
+    console.log('Middleware successfully executed')
+    next()
+})
+
+app.get('/middleware', (req, res) => {
+    res.send('Welcome to middleware')
+})
+
 app.use('/', home)
 app.use('/client', client)
 
