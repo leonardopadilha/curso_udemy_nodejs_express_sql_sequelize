@@ -19,7 +19,6 @@ app.set('views', path.join(__dirname, 'views'))
 
 app.use('/assets', express.static('./assets'))
 
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -28,15 +27,15 @@ app.use((req, res, next) => {
     next()
 })
 
-app.get('/middleware', (req, res) => {
+/* app.get('/middleware', (req, res) => {
     res.send('Welcome to middleware')
-})
+}) */
 
 app.use('/', home)
 app.use('/client', client)
 
-app.use((err, req, res, next) => {
+/* app.use((err, req, res, next) => {
     res.status(500).json( {message: 'Something wrong!'} )
-})
+}) */
 
 app.listen(port, () => console.log(`App listening http://localhost:${port}`))
