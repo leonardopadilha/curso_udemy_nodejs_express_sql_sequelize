@@ -15,17 +15,17 @@ const app = express()
 const port = 3000;
 
 app.set('view engine', 'pug')
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname + '/views'))
 
 app.use('/assets', express.static('./assets'))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
     console.log('Middleware successfully executed')
     next()
-})
+}) */
 
 /* app.get('/middleware', (req, res) => {
     res.send('Welcome to middleware')
