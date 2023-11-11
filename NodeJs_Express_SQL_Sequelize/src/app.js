@@ -28,4 +28,8 @@ app.get('/middleware', (req, res) => {
 app.use('/', home)
 app.use('/client', client)
 
+app.use((err, req, res, next) => {
+    res.status(500).json( {message: 'Something wrong!'} )
+})
+
 app.listen(port, () => console.log(`App listening http://localhost:${port}`))
