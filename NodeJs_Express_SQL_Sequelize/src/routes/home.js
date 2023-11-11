@@ -6,7 +6,10 @@ router.get('/', (req, res) => {
 })
 
 router.get('/welcome', (req, res) => {
-    res.send('Welcome to Express')
+    res.render('home', {
+        message: "Hello World"
+    })
+    //res.send('Welcome to Express')
 })
 
 router.get('/requests/:name', (req, res) => {

@@ -6,12 +6,16 @@ server.listen(3000, () => {
     console.log("Servidor rodando na porta 3000");
 }); */
 
+const path = require('path')
 const express = require('express');
 const bodyParser = require('body-parser')
 const home = require('./routes/home')
 const client = require('./routes/client')
 const app = express()
 const port = 3000;
+
+app.set('view engine', 'pug')
+app.set('views', path.join(__dirname, 'views'))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
