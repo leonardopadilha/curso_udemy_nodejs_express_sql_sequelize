@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router() 
+let create = require('./../controller/create')
 
 router.get('/', (req, res) => {
     res.render('client_list')
@@ -13,5 +14,7 @@ router.get('/', (req, res) => {
 router.get('/new', (req, res) => {
     res.render('client_new')
 })
+
+router.post('/post', create)
 
 module.exports = router;

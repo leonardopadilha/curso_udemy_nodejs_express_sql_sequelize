@@ -34,6 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/', home)
 app.use('/client', client)
 
+require('./model/index')
+
 /* app.use((err, req, res, next) => {
     res.status(500).json( {message: 'Something wrong!'} )
 }) */
