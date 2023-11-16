@@ -5,9 +5,9 @@ const Sequelize = new Seq(
     })
 
 Sequelize
-  .authenticate()
-  .then(() => console.log('Sequelize OK'))
-  .catch(() => console.log('Error on Connection with sequelize'))
+    .authenticate()
+    .then(() => console.log('Sequelize OK'))
+    .catch(() => console.log('Error on Connection with sequelize'))
 
   Sequelize.sync()
 
