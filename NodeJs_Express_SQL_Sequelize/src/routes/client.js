@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router() 
+
+let findAll = require('./../controller/findAll') 
 let create = require('./../controller/create')
 let update = require('./../controller/update')
 let remove = require('./../controller/remove')
 
-router.get('/', (req, res) => {
-    res.render('client_list')
-})
+router.get('/', findAll)
 
 /* router.get('/welcome', (req, res) => {
     res.send('Welcome to client page')
