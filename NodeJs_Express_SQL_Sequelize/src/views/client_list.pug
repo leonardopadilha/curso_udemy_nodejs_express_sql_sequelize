@@ -2,6 +2,7 @@ extends ./main
 
 block content
     div.container
+        h2 #{title}
         table.table.table-bordered
             thead
                 tr
@@ -12,32 +13,19 @@ block content
                     th Contato
                     th Ações
             tbody
-                tr
-                    td Client1
-                    td 12346546545
-                    td (99)9999999999999
-                    td client1@nodejs.com.br
-                    td Contato1
-                    td
-                        button.btn.btn-success(type="button") Editar
-                        button.btn.btn-danger(type="button") Deletar
-                tr
-                    td Client2
-                    td 12346546546
-                    td (99)9999999999999x
-                    td client2@nodejs.com.br
-                    td Contato2
-                    td
-                        button.btn.btn-success(type="button") Editar
-                        button.btn.btn-danger(type="button") Deletar
-                tr
-                    td Client3
-                    td 12346546546
-                    td (99)9999999999999t
-                    td client3@nodejs.com.br
-                    td Contato3
-                    td
-                        button.btn.btn-success(type="button") Editar
-                        button.btn.btn-danger(type="button") Deletar
-
+                each client in clients
+                    tr
+                        td= client.cliente
+                        td= client.cnpj
+                        td= client.telefone
+                        td= client.email
+                        td= client.contato
+                        td
+                            a(href="#", class="btn btn-info") Editar
+                            form(
+                                method="POST", 
+                                action="/client",
+                                style="display:inline-block")
+                                input(type="hidden", name="_method", value="DELETE")
+                                button.btn.btn-danger(type="submit") Delete
 
