@@ -4,6 +4,12 @@ const path = require('path');
 let Cliente = require(path.join(__dirname, './../model/client'))(sequelize, Sequelize.DataTypes)
 
 module.exports = (req, res) => {
+    let msg = 0
+
+    if (req.query.msg == 1) {
+        msg = 1
+    }
+    
     Cliente
         .findAll()
         .then((clients) => {

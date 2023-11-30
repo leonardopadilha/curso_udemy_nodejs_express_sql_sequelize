@@ -3,6 +3,10 @@ extends ./main
 block content
     div.container
         h2 #{title}
+        if msg === 1
+            div.alert.alert-success Cliente Cadastrado com sucesso
+        if msg === 2
+            div.alert.alert-danger Não foi possível cadastrar o Cliente!
         table.table.table-bordered
             thead
                 tr

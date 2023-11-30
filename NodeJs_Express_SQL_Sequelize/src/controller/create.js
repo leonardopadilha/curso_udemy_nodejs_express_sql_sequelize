@@ -6,6 +6,7 @@ let Cliente = require(path.join(__dirname, './../model/client'))(sequelize, Sequ
 module.exports = (req, res) => {
     Cliente
         .create(req.body)
-        .then(() => console.log('INSERT OK'))
+        .then(() => res.redirect('/client?msg=1'))
+        .catch((err) => res.redirect('/client?msg=2'))
 }
 
