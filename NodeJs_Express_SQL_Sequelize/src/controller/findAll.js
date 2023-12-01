@@ -9,13 +9,14 @@ module.exports = (req, res) => {
     if (req.query.msg == 1) {
         msg = 1
     }
-    
+
     Cliente
         .findAll()
         .then((clients) => {
             return res.render('client_list', {
                 title: "Lista de Clientes",
-                clients: clients
+                clients: clients,
+                msg: req.query.msg
             })
         })
         .catch((err) => {

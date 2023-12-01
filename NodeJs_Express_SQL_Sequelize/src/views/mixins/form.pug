@@ -5,7 +5,8 @@ mixin form(client)
             name="cliente",
             id="client",
             placeholder="Digite o nome do cliente"
-            required
+            required,
+            value=client.client
         )
     div.form-group
         input.form-control(
@@ -13,7 +14,8 @@ mixin form(client)
             name="cnpj",
             id="cnpj",
             placeholder="Digite o CNPJ do cliente",
-            required
+            required,
+            value=client.cnpj
         )
     div.form-group
         input.form-control(
@@ -21,7 +23,8 @@ mixin form(client)
             name="telefone",
             id="telefone",
             placeholder="Digite um telefone",
-            required
+            required,
+            value=client.telefone
         )
     div.form-group
         input.form-control(
@@ -29,7 +32,8 @@ mixin form(client)
             name="email",
             id="email",
             placeholder="Digite um email",
-            required
+            required,
+            value=client.email
         )
     div.form-group
         input.form-control(
@@ -37,7 +41,8 @@ mixin form(client)
             name="contato",
             id="contato",
             placeholder="Digite um contato do cliente",
-            required
+            required,
+            value=client.contato
         )
             
     button.btn.btn-success.col-md-12(type="submit") Cadastrar

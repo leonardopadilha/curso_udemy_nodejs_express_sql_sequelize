@@ -11,6 +11,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const home = require('./routes/home')
 const client = require('./routes/client')
+const methodOverride = require('method-override')
 const app = express()
 const port = 3000;
 
@@ -21,6 +22,7 @@ app.use('/assets', express.static('./assets'))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(methodOverride( '_method'))
 
 /* app.use((req, res, next) => {
     console.log('Middleware successfully executed')

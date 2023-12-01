@@ -4,9 +4,13 @@ block content
     div.container
         h2 #{title}
         if msg === 1
-            div.alert.alert-success Cliente Cadastrado com sucesso
+            div.alert.alert-success Cliente Cadastrado com Sucesso!
         if msg === 2
             div.alert.alert-danger Não foi possível cadastrar o Cliente!
+        if msg === 3
+            div.alert.alert-success Cliente Alterado com Sucesso!
+        if msg === 4
+            div.alert.alert-success Não foi possível alterar o Cliente!
         table.table.table-bordered
             thead
                 tr
@@ -25,7 +29,7 @@ block content
                         td= client.email
                         td= client.contato
                         td
-                            a(href="#", class="btn btn-info") Editar
+                            a(href="/client/edit" + client.id, class="btn btn-info") Editar
                             form(
                                 method="POST", 
                                 action="/client",
