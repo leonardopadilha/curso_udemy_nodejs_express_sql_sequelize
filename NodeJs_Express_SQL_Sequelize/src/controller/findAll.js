@@ -2,12 +2,13 @@ const { Sequelize } = require('sequelize')
 let sequelize = require('../model/index')
 const path = require('path');
 let Cliente = require(path.join(__dirname, './../model/client'))(sequelize, Sequelize.DataTypes)
+const msg = require('./message')
 
 module.exports = (req, res) => {
-    let msg = 0
+    let result;
 
-    if (req.query.msg == 1) {
-        msg = 1
+    if (req.query.msg) {
+        result = msg(req.query.msg)
     }
 
     Cliente
@@ -16,7 +17,7 @@ module.exports = (req, res) => {
             return res.render('client_list', {
                 title: "Lista de Clientes",
                 clients: clients,
-                msg: req.query.msg
+                flash: result
             })
         })
         .catch((err) => {
