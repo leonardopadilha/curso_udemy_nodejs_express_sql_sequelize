@@ -9,8 +9,7 @@ module.exports = (req, res) => {
             where: {
                 id: req.params.id
             }
-        }).then(() => console.log("DELETE OK"))
-        .catch((err) => {
-            console.log(err)
         })
+        .then(() => res.redirect('/client?msg=5'))
+        .catch(() => res.redirect('/client?msg=6'))
 }

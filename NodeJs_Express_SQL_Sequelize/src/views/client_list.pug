@@ -3,14 +3,18 @@ extends ./main
 block content
     div.container
         h2 #{title}
-        if msg === 1
+        if msg == 1
             div.alert.alert-success Cliente Cadastrado com Sucesso!
-        if msg === 2
+        if msg == 2
             div.alert.alert-danger Não foi possível cadastrar o Cliente!
-        if msg === 3
+        if msg == 3
             div.alert.alert-success Cliente Alterado com Sucesso!
-        if msg === 4
-            div.alert.alert-success Não foi possível alterar o Cliente!
+        if msg == 4
+            div.alert.alert-danger Não foi possível alterar o Cliente!
+        if msg == 5
+            div.alert.alert-success Cliente removido com Sucesso!
+        if msg == 6
+            div.alert.alert-danger Não foi possível remover o Cliente!
         table.table.table-bordered
             thead
                 tr
@@ -32,8 +36,6 @@ block content
                             a(href="/client/edit" + client.id, class="btn btn-info") Editar
                             form(
                                 method="POST", 
-                                action="/client",
+                                action="/client" + client.id + "?_method=DELETE",
                                 style="display:inline-block")
-                                input(type="hidden", name="_method", value="DELETE")
                                 button.btn.btn-danger(type="submit") Delete
-
