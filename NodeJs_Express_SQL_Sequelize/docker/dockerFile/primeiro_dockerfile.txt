@@ -1,0 +1,10 @@
+FROM nginx:latest
+
+#irá criar uma pasta dentro do container que será gerado
+WORKDIR /minha-pasta
+
+RUN apt-get update
+RUN apt-get install vim -y 
+
+#copia arquivos ou diretórios locais para o container
+COPY index.html /usr/share/nginx/html/
