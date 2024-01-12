@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nodejs:
+    image: cursonode/hello-node:latest
+    container_name: hello-node
+    networks:
+      - node01
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    networks:
+      - node01
+    ports:
+      - "8090:80"
+
+networks:
+  node01:
+    driver: bridge
